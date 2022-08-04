@@ -1,0 +1,27 @@
+page-event-dates,
+.event-dates {
+    .card {
+        border-radius: 1rem;
+    }
+    .event-date {
+        overflow: hidden;
+
+        .background {
+            background-size: 100% auto;
+            background-position: center;
+
+            .background-filter {
+                height: 20rem;
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.65));
+
+                .align-bottom {
+                    width: 100%;
+
+                    h6 {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+}

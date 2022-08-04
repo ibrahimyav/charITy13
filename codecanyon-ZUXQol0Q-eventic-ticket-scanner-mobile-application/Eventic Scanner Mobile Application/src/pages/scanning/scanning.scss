@@ -1,0 +1,13 @@
+page-scanning {
+    ion-fab {
+        margin-bottom: 45px;
+    }
+    .vertical-align-content > * {
+        display: flex !important;
+        align-content: center !important;
+        align-items: center !important;
+    }
+    ion-content {
+        background: none transparent !important;
+    }
+}

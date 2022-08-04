@@ -1,0 +1,88 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>
+      <span ion-text>{{ "Event details" | translate }}</span>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="common-bg">
+
+  <ion-slides class="to-top" pager>
+    <ion-slide>
+      <img src="{{ eventDate.eventImage }}" alt="">
+    </ion-slide>
+  </ion-slides>
+
+  <ion-grid class="border-bottom dark-bg">
+    <ion-row>
+      <ion-col text-center>
+        <div>
+          <h4 ion-text color="light">{{ eventDate.eventName }}</h4>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="border-bottom" padding>
+    <ul class="highlight">
+      <li margin-top>
+        <h6 ion-text><ion-icon name="time"></ion-icon> {{ eventDate.eventDate }}</h6>
+      </li>
+      <li margin-top>
+        <h6 ion-text><ion-icon name="map"></ion-icon> {{ eventDate.eventVenue }}</h6>
+      </li>
+    </ul>
+  </div>
+
+  <ng-template [ngIf]="globalFunctionsProvider.getShowEventDateStats() == true">
+    <div class="card round" margin>
+      <div padding>
+        <h6 text-center>{{ "Total ticket sales" | translate }}</h6>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6 offset-3>
+              <circle-progress [percent]="eventDate.totalSalesPercentage" [radius]="100" [outerStrokeWidth]="8"
+                [innerStrokeWidth]="4" [outerStrokeColor]="'#f67611'" [innerStrokeColor]="'#eee'" [animation]="true"
+                [animationDuration]="300" [subtitle]="eventDate.totalSales + ' / ' + eventDate.totalQuantity"
+                [subtitleColor]="'#333'" [subtitleFontSize]="12" [responsive]="true"></circle-progress>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+
+    <div class="card round marginT-3 border-bottom" margin>
+      <div padding>
+        <h6 text-center>{{ "Attendance" | translate }}</h6>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6 offset-3>
+              <circle-progress [percent]="eventDate.totalCheckInPercentage" [radius]="100" [outerStrokeWidth]="8"
+                [innerStrokeWidth]="4" [outerStrokeColor]="'#f67611'" [innerStrokeColor]="'#eee'" [animation]="true"
+                [animationDuration]="300" [subtitle]="eventDate.totalCheckIns + ' / ' + eventDate.totalSales"
+                [subtitleColor]="'#333'" [subtitleFontSize]="12" [responsive]="true"></circle-progress>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </ng-template>
+
+  <div padding>
+    <button ion-button icon-start block color="dark" margin-top size="large" tappable (click)="scanQrCodes(eventDate)">
+      <ion-icon name="qr-scanner"></ion-icon>
+      {{ "Scan tickets" | translate }}
+    </button>
+
+    <ng-template [ngIf]="globalFunctionsProvider.getAllowTapToCheckIn() == true">
+      <button ion-button icon-start block color="dark" margin-top size="large" tappable (click)="eventDateAttendees(eventDate)">
+        <ion-icon name="list-box"></ion-icon>
+        {{ "Tap to check attendees in" | translate }}
+      </button>
+    </ng-template>
+  </div>
+
+</ion-content>

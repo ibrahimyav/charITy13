@@ -1,0 +1,15 @@
+page-event-date-attendees {
+    .spinner-container {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+    .checkbox-md .checkbox-checked {
+        border-color: color($colors-md, success);
+        background-color: color($colors-md, success);
+    }
+    .text-sm {
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
+}

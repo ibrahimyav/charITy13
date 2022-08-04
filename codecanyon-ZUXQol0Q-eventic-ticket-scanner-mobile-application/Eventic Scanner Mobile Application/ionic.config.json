@@ -1,0 +1,7 @@
+{
+  "name": "EventicScanApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

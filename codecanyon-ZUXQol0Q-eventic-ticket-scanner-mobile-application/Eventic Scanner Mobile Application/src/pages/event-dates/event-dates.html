@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      {{ "Events" | translate }}
+    </ion-title>
+  </ion-navbar>
+  <ion-toolbar padding color="dark">
+    <p ion-text no-margin class="text-white">
+      <strong>{{ eventDates && eventDates.length > 0 ? eventDates.length : "No" | translate }}</strong> {{ "events found" | translate }}
+    </p>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content padding class="animated fadeIn common-bg event-dates">
+
+  <div class="event-date card" *ngFor="let eventDate of eventDates" tappable (click)="eventDateDetails(eventDate)" margin-bottom>
+    <div class="background border-bottom" [ngStyle]="{'background-image': 'url(' + eventDate.eventImage + ')'}">
+      <div class="background-filter rlt">
+        <div class="align-bottom" padding-left padding-right padding-bottom>
+          <h6 class="text-white" ion-text>{{ eventDate.eventName }}</h6>
+          <small class="text-white" ion-text>{{ eventDate.eventDate }}</small>
+        </div>
+      </div>
+    </div>
+    <div class="padding-sm primary-bg">
+      
+      <small ion-text class="text-white"><ion-icon name="map" margin-right></ion-icon> {{ eventDate.eventVenue }}</small>
+    </div>
+  </div>
+
+</ion-content>

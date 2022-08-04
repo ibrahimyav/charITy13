@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{ "Attendees" | translate }}</ion-title>
+  </ion-navbar>
+  <ion-searchbar
+  padding color="dark"
+  [formControl]="searchControl"
+  (ionChange)="onSearchInput()"
+  placeholder="{{ 'Search' | translate }}"
+></ion-searchbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div *ngIf="searching" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
+  <ion-list>
+    <ion-item *ngFor="let attendee of filteredAttendeesList">
+      <ion-label>
+        <p>{{ attendee.attendeeName }}</p>
+        <p class="text-sm">#{{ attendee.ticketReference }}</p>
+      </ion-label>
+      <ion-checkbox item-right (ionChange)="grantAccess(attendee.ticketReference);" [disabled]="attendee.isTicketScanned == true" [checked]="attendee.isTicketScanned == true"></ion-checkbox>
+      
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>{{ "Scan the QR Code" | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="vertical-align-content">
+
+  <ion-img width="200" height="200" src="assets/imgs/scanning.png" style="background: transparent !important; margin: 0 auto;"></ion-img>
+
+  <ion-fab left bottom edge>
+    <button ion-fab (click)="switchCamera()" margin-bottom><ion-icon name="reverse-camera"></ion-icon></button>
+  </ion-fab>
+
+  <ion-fab right bottom edge>
+    <button ion-fab (click)="toggleLight()" margin-bottom><ion-icon name="flash"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>

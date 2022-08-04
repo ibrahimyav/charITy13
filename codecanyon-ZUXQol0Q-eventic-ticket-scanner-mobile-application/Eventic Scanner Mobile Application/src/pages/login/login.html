@@ -1,0 +1,44 @@
+<ion-content padding class="animated fadeIn login auth-page">
+    <div class="login-content">
+
+        <!-- Logo -->
+        <div padding-horizontal text-center class="animated fadeInDown">
+            <div class="logo"></div>
+            <h6 ion-text class="text-primary">
+                {{ "Sign in with a scanner account to check attendees in"|translate }}
+            </h6>
+        </div>
+
+        <!-- Login form -->
+        <form class="list-form">
+            <ion-item>
+                <ion-label floating>
+                    <ion-icon name="person" item-start class="text-primary"></ion-icon>
+                    {{ "Username"|translate }}
+                </ion-label>
+                <ion-input [(ngModel)]="username" name="username" type="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>
+                    <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+                    {{ "Password"|translate }}
+                </ion-label>
+                <ion-input [(ngModel)]="password" name="password" type="password"></ion-input>
+            </ion-item>
+
+            <button class="marginT-3" ion-button icon-start block color="dark" size="large" tappable (click)="login()">
+                <ion-icon name="log-in"></ion-icon>
+                {{ "SIGN IN"|translate }}
+            </button>
+        </form>
+
+        <ion-item class="marginT-3">
+            <ion-label>{{ "Change language"|translate }}</ion-label>
+            <ion-select [(ngModel)]="language" name="language" (ionChange)="onLanguageChange($event)" okText="{{ 'Ok'|translate }}" cancelText="{{ 'Cancel'|translate }}">
+                <ion-option *ngFor="let key of languagesForLoop" value="{{ key }}" [selected]="key == language">{{ languages[key] }}</ion-option>
+            </ion-select>
+        </ion-item>
+
+    </div>
+</ion-content>
